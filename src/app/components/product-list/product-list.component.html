@@ -1,0 +1,20 @@
+<div class="row">
+  @for (product of products(); track product.id) {
+    <div class="col-md-4 mb-4 d-flex">
+      <div class="card w-100 shadow-sm border-0 rounded-4 product-card">
+        <img
+          [src]="product.imageUrl"
+          class="card-img-top p-3 product-img"
+          alt="{{ product.name }}"
+        />
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-primary mb-1">{{ product.name }}</h5>
+          <span class="badge bg-light text-dark mb-2">{{ product.category }}</span>
+          <p class="card-text text-body-secondary small flex-grow-1">{{ product.description }}</p>
+          <div class="mt-3 fw-semibold text-success">$ {{ product.price }}</div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
