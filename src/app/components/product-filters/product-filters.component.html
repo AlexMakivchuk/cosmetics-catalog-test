@@ -6,8 +6,7 @@
     data-bs-toggle="collapse"
     data-bs-target="#filterCollapse"
     aria-expanded="false"
-    aria-controls="filterCollapse"
-  >
+    aria-controls="filterCollapse">
     Показати / Приховати
   </button>
 </div>
@@ -25,8 +24,7 @@
           type="text"
           class="form-control"
           placeholder="Пошук за назвою..."
-          (input)="onSearch($event)"
-        />
+          (input)="onSearch($event)"/>
       </div>
 
       <div class="col-md-4">
@@ -37,8 +35,10 @@
           }
         </select>
       </div>
+    </div>
 
-      <div class="col-md-4">
+    <div class="row g-2 mt-3">
+      <div class="col-md-4 mb-3">
         <label class="form-label small text-muted">Ціна: {{ minPrice() }} – {{ maxPrice() }}</label>
         <ngx-slider
           [value]="minPrice()"
@@ -49,35 +49,34 @@
         ></ngx-slider>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="col-md-4 mb-3">
-  <label class="form-label small text-muted">Сортування</label>
-  <div class="d-flex gap-2">
-    <button
-      class="btn"
-      [class]="sortBy() === 'name' ? 'btn-primary' : 'btn-outline-primary'"
-      (click)="setSortBy('name')"
-    >
-      Назва
-    </button>
+    <div class="row g-2">
+      <div class="col-md-4 mb-3">
+        <label class="form-label small text-muted">Сортування</label>
+        <div class="d-flex gap-2">
+          <button
+            class="btn"
+            [class]="sortBy() === 'name' ? 'btn-primary' : 'btn-outline-primary'"
+            (click)="setSortBy('name')">
+            Назва
+          </button>
 
-    <button
-      class="btn"
-      [class]="sortBy() === 'price' ? 'btn-primary' : 'btn-outline-primary'"
-      (click)="setSortBy('price')"
-    >
-      Ціна
-    </button>
+          <button
+            class="btn"
+            [class]="sortBy() === 'price' ? 'btn-primary' : 'btn-outline-primary'"
+            (click)="setSortBy('price')">
+            Ціна
+          </button>
 
-    <button
-      class="btn"
-      [class.btn-success]="true"
-      (click)="toggleSortDir()"
-    >
-      <span>{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
-    </button>
+          <button
+            class="btn"
+            [class.btn-success]="true"
+            (click)="toggleSortDir()">
+            <span>{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
